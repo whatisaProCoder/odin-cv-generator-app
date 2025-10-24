@@ -1,6 +1,6 @@
 function Header() {
   return (
-    <div className="fixed top-0 left-0 right-0 border-b border-b-[#282828] px-6 py-3 text-left text-[1.25rem] font-semibold">
+    <div className="fixed top-0 left-0 right-0 bg-[#141414] border-b border-b-[#282828] px-6 py-3 text-left text-[1.25rem] font-semibold z-50">
       CV Generator
     </div>
   );

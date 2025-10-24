@@ -1,9 +1,77 @@
 import Header from "../components/Header";
 
+import cvExample from "../assets/images/cv-example.png";
+import { useState } from "react";
+import { Templates } from "../components/templates";
+import SelectDropdown from "../components/SelectDropdown";
+import { AccentColors } from "../constants/accentColors";
+
 function MainPage() {
+  const [templateID, setTemplateID] = useState(Templates[0].id);
+
+  const [accentColorID, setAccentColorID] = useState(AccentColors[0].id);
+
   return (
     <>
       <Header />
+      <div className="pt-20 flex flex-row gap-6 h-full">
+        <div className="px-6 flex flex-col flex-1">
+          <div className="flex flex-row items-center">
+            <div className="font-semibold text-[0.9rem]">Choose Template</div>
+            <SelectDropdown
+              className="ml-6 flex-1"
+              selected={
+                <div className="font-medium text-[0.8rem] pl-3">
+                  {Templates[templateID].name}
+                </div>
+              }
+            >
+              {Templates.map((templateObj) => {
+                return (
+                  <div
+                    key={templateObj.id}
+                    className="pl-2 py-0.5 text-[0.8rem] hover:bg-[#282828] rounded-[0.2rem]"
+                    onClick={() => {
+                      setTemplateID(templateObj.id);
+                    }}
+                  >
+                    {templateObj.name}
+                  </div>
+                );
+              })}
+            </SelectDropdown>
+          </div>
+          <div className="mt-12 flex flex-row items-center">
+            <div className="font-semibold text-[0.9rem] flex-1">
+              Personal Information
+            </div>
+            <SelectDropdown
+              selected={
+                <div
+                  className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5"
+                  style={{ backgroundColor: AccentColors[accentColorID].color }}
+                />
+              }
+            >
+              {AccentColors.map((accentColor) => {
+                return (
+                  <div
+                    key={accentColor.id}
+                    className="h-4 w-full rounded-[0.2rem]"
+                    style={{ backgroundColor: accentColor.color }}
+                  />
+                );
+              })}
+            </SelectDropdown>
+          </div>
+        </div>
+        <div className="flex flex-col flex-1 pr-14">
+          <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
+            Download
+          </button>
+          <img src={cvExample} className="mt-2 mb-6 w-full" />
+        </div>
+      </div>
     </>
   );
 }
