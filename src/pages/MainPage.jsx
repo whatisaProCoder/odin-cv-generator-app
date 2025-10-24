@@ -93,8 +93,6 @@ function MainPage() {
     setAdditionalInformations(newAdditionalInformations);
   };
 
-  console.log(additionalInformations);
-
   return (
     <>
       <Header />
