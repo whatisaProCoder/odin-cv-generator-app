@@ -374,7 +374,7 @@ function MainPage() {
                     <input
                       type="checkbox"
                       style={{
-                        accentColor: "#e1e1e1",
+                        accentColor: "#2263C8",
                         transform: "scale(1.25)",
                       }}
                       onChange={(e) => {
@@ -563,7 +563,7 @@ function MainPage() {
                     <input
                       type="checkbox"
                       style={{
-                        accentColor: "#e1e1e1",
+                        accentColor: "#2263C8",
                         transform: "scale(1.25)",
                       }}
                       onChange={(e) => {
