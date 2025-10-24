@@ -93,6 +93,18 @@ function MainPage() {
     setAdditionalInformations(newAdditionalInformations);
   };
 
+  const CVObject = {
+    templateID: templateID,
+    accentColorID: accentColorID,
+    personalInfo: personalInfo,
+    skills: skills,
+    professionalExperiences: professionalExperiences,
+    educationExperiences: educationExperiences,
+    additionalInformations: additionalInformations,
+  };
+
+  console.log(CVObject);
+
   return (
     <>
       <Header />
