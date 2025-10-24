@@ -116,7 +116,10 @@ function MainPage() {
               className="ml-6 flex-1"
               selected={
                 <div className="font-medium text-[0.8rem] pl-3">
-                  {Templates[templateID].name}
+                  {
+                    Templates.find((template) => template.id === templateID)
+                      .name
+                  }
                 </div>
               }
             >
@@ -143,7 +146,11 @@ function MainPage() {
               selected={
                 <div
                   className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5 transition-colors"
-                  style={{ backgroundColor: AccentColors[accentColorID].color }}
+                  style={{
+                    backgroundColor: AccentColors.find(
+                      (accentColor) => accentColor.id === accentColorID
+                    ).color,
+                  }}
                 />
               }
             >
@@ -230,7 +237,6 @@ function MainPage() {
                   className="flex flex-row items-center"
                 >
                   <InputField
-                    key={index}
                     id={"skill" + index}
                     placeholder={"Skill " + (index + 1)}
                     value={skill}
@@ -241,11 +247,7 @@ function MainPage() {
                     }}
                     style={{ flex: "1" }}
                   />
-                  <img
-                    src={closeIcon}
-                    role="button"
-                    alt="Close Button"
-                    className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                  <button
                     onClick={() => {
                       let newSkills = [
                         ...skills.slice(0, index),
@@ -256,7 +258,13 @@ function MainPage() {
                       }
                       setSkills(newSkills);
                     }}
-                  />
+                  >
+                    <img
+                      src={closeIcon}
+                      alt="Close Button"
+                      className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                    />
+                  </button>
                 </div>
               );
             })}
@@ -404,11 +412,7 @@ function MainPage() {
                             }}
                             style={{ flex: "1" }}
                           />
-                          <img
-                            src={closeIcon}
-                            role="button"
-                            alt="Close Button"
-                            className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                          <button
                             onClick={() => {
                               let newProfessionalExperiences = [
                                 ...professionalExperiences,
@@ -434,7 +438,13 @@ function MainPage() {
                                 newProfessionalExperiences
                               );
                             }}
-                          />
+                          >
+                            <img
+                              src={closeIcon}
+                              alt="Close Button"
+                              className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                            />
+                          </button>
                         </div>
                       );
                     })}
@@ -559,7 +569,7 @@ function MainPage() {
                     {experience.information.map((point, innerIndex) => {
                       return (
                         <div
-                          key={"information" + innerIndex}
+                          key={"information" + index + innerIndex}
                           className="flex flex-row items-center"
                         >
                           <InputField
@@ -578,11 +588,7 @@ function MainPage() {
                             }}
                             style={{ flex: "1" }}
                           />
-                          <img
-                            src={closeIcon}
-                            role="button"
-                            alt="Close Button"
-                            className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                          <button
                             onClick={() => {
                               let newEducationExperiences = [
                                 ...educationExperiences,
@@ -607,7 +613,13 @@ function MainPage() {
                               }
                               setEducationExperiences(newEducationExperiences);
                             }}
-                          />
+                          >
+                            <img
+                              src={closeIcon}
+                              alt="Close Button"
+                              className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                            />
+                          </button>
                         </div>
                       );
                     })}
@@ -659,11 +671,7 @@ function MainPage() {
                     }}
                     style={{ flex: "2", marginLeft: "1rem" }}
                   />
-                  <img
-                    src={closeIcon}
-                    role="button"
-                    alt="Close Button"
-                    className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                  <button
                     onClick={() => {
                       let newAdditionalInformations = [
                         ...additionalInformations,
@@ -681,7 +689,13 @@ function MainPage() {
                       }
                       setAdditionalInformations(newAdditionalInformations);
                     }}
-                  />
+                  >
+                    <img
+                      src={closeIcon}
+                      alt="Close Button"
+                      className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                    />
+                  </button>
                 </div>
               );
             })}
