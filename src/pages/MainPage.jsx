@@ -9,6 +9,7 @@ import InputField from "../components/InputField";
 import addIcon from "../assets/icons/add-icon.svg";
 import closeIcon from "../assets/icons/close-icon.svg";
 import IconButton from "../components/IconButton";
+import Footer from "../components/Footer";
 
 function MainPage() {
   const [templateID, setTemplateID] = useState(Templates[0].id);
@@ -48,6 +49,12 @@ function MainPage() {
     },
   ]);
 
+  const [additionalInformations, setAdditionalInformations] = useState([
+    { point: "", details: "" },
+    { point: "", details: "" },
+    { point: "", details: "" },
+  ]);
+
   const handleAddSkills = () => {
     const newSkills = [...skills];
     newSkills.push("");
@@ -79,6 +86,14 @@ function MainPage() {
     });
     setEducationExperiences(newEducationExperiences);
   };
+
+  const handleAddAdditionalInformation = () => {
+    const newAdditionalInformations = [...additionalInformations];
+    newAdditionalInformations.push({ point: "", details: "" });
+    setAdditionalInformations(newAdditionalInformations);
+  };
+
+  console.log(additionalInformations);
 
   return (
     <>
@@ -117,7 +132,7 @@ function MainPage() {
             <SelectDropdown
               selected={
                 <div
-                  className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5"
+                  className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5 transition-colors"
                   style={{ backgroundColor: AccentColors[accentColorID].color }}
                 />
               }
@@ -585,8 +600,77 @@ function MainPage() {
               );
             })}
           </div>
+          <div className="mt-12 flex flex-row items-center mb-4">
+            <div className="font-semibold text-[0.9rem] flex-1">
+              Additional Information
+            </div>
+            <IconButton
+              onClick={handleAddAdditionalInformation}
+              iconSrc={addIcon}
+              text="ADD"
+            />
+          </div>
+          <div className="mt-4 flex flex-col gap-4">
+            {additionalInformations.map((info, index) => {
+              return (
+                <div
+                  key={"additionalinfo" + index}
+                  className="flex flex-row items-center"
+                >
+                  <InputField
+                    id={"additionalinfopoint" + index}
+                    value={info.point}
+                    placeholder={"Point " + (index + 1)}
+                    onChange={(e) => {
+                      const newAdditionalInformations = [
+                        ...additionalInformations,
+                      ];
+                      newAdditionalInformations[index].point = e.target.value;
+                      setAdditionalInformations(newAdditionalInformations);
+                    }}
+                    style={{ flex: "1" }}
+                  />
+                  <InputField
+                    id={"additionalinfodetail" + index}
+                    value={info.details}
+                    placeholder="Details"
+                    onChange={(e) => {
+                      const newAdditionalInformations = [
+                        ...additionalInformations,
+                      ];
+                      newAdditionalInformations[index].details = e.target.value;
+                      setAdditionalInformations(newAdditionalInformations);
+                    }}
+                    style={{ flex: "2", marginLeft: "1rem" }}
+                  />
+                  <img
+                    src={closeIcon}
+                    className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                    onClick={() => {
+                      let newAdditionalInformations = [
+                        ...additionalInformations,
+                      ];
+                      newAdditionalInformations = [
+                        ...newAdditionalInformations.slice(0, index),
+                        ...newAdditionalInformations.slice(index + 1),
+                      ];
+                      if (newAdditionalInformations.length === 0) {
+                        newAdditionalInformations = [
+                          { point: "", details: "" },
+                          { point: "", details: "" },
+                          { point: "", details: "" },
+                        ];
+                      }
+                      setAdditionalInformations(newAdditionalInformations);
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <Footer style={{ marginTop: "4rem" }} />
         </div>
-        <div className="flex flex-col flex-1 pr-14">
+        <div className="flex flex-col flex-1 pr-12 sticky top-20 h-min">
           <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
             Download
           </button>
