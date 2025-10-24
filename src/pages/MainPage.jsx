@@ -6,6 +6,9 @@ import { Templates } from "../components/templates";
 import SelectDropdown from "../components/SelectDropdown";
 import { AccentColors } from "../constants/accentColors";
 import InputField from "../components/InputField";
+import addIcon from "../assets/icons/add-icon.svg";
+import closeIcon from "../assets/icons/close-icon.svg";
+import IconButton from "../components/IconButton";
 
 function MainPage() {
   const [templateID, setTemplateID] = useState(Templates[0].id);
@@ -21,10 +24,44 @@ function MainPage() {
     summary: "",
   });
 
+  const [skills, setSkills] = useState(["", "", ""]);
+
+  const [professionalExperiences, setProfessionalExperiences] = useState([
+    {
+      projectOrRole: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      workingAtPresent: false,
+      workingDetails: ["", "", ""],
+    },
+  ]);
+
+  const handleAddSkills = () => {
+    const newSkills = [...skills];
+    newSkills.push("");
+    setSkills(newSkills);
+  };
+
+  const handleAddProfessionalExperience = () => {
+    const newProfessionalExperiences = [...professionalExperiences];
+    newProfessionalExperiences.push({
+      projectOrRole: "",
+      company: "",
+      startDate: "",
+      endDate: "",
+      workingAtPresent: false,
+      workingDetails: ["", "", ""],
+    });
+    setProfessionalExperiences(newProfessionalExperiences);
+  };
+
+  console.log(professionalExperiences);
+
   return (
     <>
       <Header />
-      <div className="pt-20 flex flex-row gap-6 h-full">
+      <div className="pt-20 flex flex-row gap-6">
         <div className="px-6 flex flex-col flex-1">
           <div className="flex flex-row items-center">
             <div className="font-semibold text-[0.9rem]">Choose Template</div>
@@ -120,7 +157,7 @@ function MainPage() {
               }}
             />
           </div>
-          <div className="mt-10 font-semibold text-[0.9rem] mb-4">Summary</div>
+          <div className="mt-12 font-semibold text-[0.9rem] mb-4">Summary</div>
           <InputField
             id="summary"
             value={personalInfo.summary}
@@ -130,6 +167,120 @@ function MainPage() {
             textarea={true}
             style={{ height: "10rem" }}
           />
+          <div className="mt-12 flex flex-row items-center mb-4">
+            <div className="font-semibold text-[0.9rem] flex-1">Skills</div>
+            <IconButton
+              onClick={handleAddSkills}
+              iconSrc={addIcon}
+              text="ADD"
+            />
+          </div>
+          <div className="mt-2 flex flex-col gap-4">
+            {skills.map((skill, index) => {
+              return (
+                <div
+                  key={"skills" + index}
+                  className="flex flex-row items-center"
+                >
+                  <InputField
+                    key={index}
+                    id={"skill" + index}
+                    placeholder={"Skill " + (index + 1)}
+                    value={skill}
+                    onChange={(e) => {
+                      const newSkills = [...skills];
+                      newSkills[index] = e.target.value;
+                      setSkills(newSkills);
+                      console.log(newSkills);
+                    }}
+                    style={{ flex: "1" }}
+                  />
+                  <img
+                    src={closeIcon}
+                    className="h-6 w-6 ml-3 transition-transform hover:scale-115"
+                    onClick={() => {
+                      let newSkills = [
+                        ...skills.slice(0, index),
+                        ...skills.slice(index + 1),
+                      ];
+                      if (newSkills.length === 0) {
+                        newSkills = ["", "", ""];
+                      }
+                      setSkills(newSkills);
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <div className="mt-12 flex flex-row items-center mb-4">
+            <div className="font-semibold text-[0.9rem] flex-1">
+              Professional Experience
+            </div>
+            <IconButton
+              onClick={handleAddProfessionalExperience}
+              iconSrc={addIcon}
+              text="ADD"
+            />
+          </div>
+          <div className="mt-4 flex flex-col gap-6">
+            {professionalExperiences.map((experience, index) => {
+              return (
+                <div key={"profexp" + index} className="flex flex-col gap-4">
+                  <div className="text-[0.8rem] font-semibold">
+                    {"Experience " + (index + 1)}
+                  </div>
+                  <div className="flex flex-row gap-4">
+                    <InputField
+                      id="project-role"
+                      value={experience.projectOrRole}
+                      placeholder="Project / Role"
+                      onChange={(e) => {
+                        const newProfessionalExperiences = [
+                          ...professionalExperiences,
+                        ];
+                        newProfessionalExperiences[index].projectOrRole =
+                          e.target.value;
+                        setProfessionalExperiences(newProfessionalExperiences);
+                      }}
+                      style={{ flex: "1" }}
+                    />
+                    <InputField
+                      id="company"
+                      value={experience.company}
+                      placeholder="Company"
+                      onChange={(e) => {
+                        const newProfessionalExperiences = [
+                          ...professionalExperiences,
+                        ];
+                        newProfessionalExperiences[index].company =
+                          e.target.value;
+                        setProfessionalExperiences(newProfessionalExperiences);
+                      }}
+                      style={{ flex: "1" }}
+                    />
+                  </div>
+                  <div className="flex flex-row items-center gap-4">
+                    <div className="text-[0.8rem] font-medium">Start Date</div>
+                    <InputField
+                      id="start-date"
+                      type="month"
+                      value={experience.startDate}
+                      onChange={(e) => {
+                        const newProfessionalExperiences = [
+                          ...professionalExperiences,
+                        ];
+                        newProfessionalExperiences[index].startDate =
+                          e.target.value;
+                        setProfessionalExperiences(newProfessionalExperiences);
+                      }}
+                      style={{ flex: "1" }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <div className="flex flex-col flex-1 pr-14">
           <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
