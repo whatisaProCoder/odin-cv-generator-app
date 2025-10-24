@@ -16,7 +16,7 @@ function MainPage() {
 
   const [accentColorID, setAccentColorID] = useState(AccentColors[0].id);
 
-  const [personalInfo, setaPersonalInfo] = useState({
+  const [personalInfo, setPersonalInfo] = useState({
     name: "",
     jobRole: "",
     address: "",
@@ -155,7 +155,7 @@ function MainPage() {
               placeholder="Name"
               value={personalInfo.name}
               onChange={(e) => {
-                setaPersonalInfo({ ...personalInfo, name: e.target.value });
+                setPersonalInfo({ ...personalInfo, name: e.target.value });
               }}
             />
             <InputField
@@ -163,7 +163,7 @@ function MainPage() {
               placeholder="Job Role"
               value={personalInfo.jobRole}
               onChange={(e) => {
-                setaPersonalInfo({ ...personalInfo, jobRole: e.target.value });
+                setPersonalInfo({ ...personalInfo, jobRole: e.target.value });
               }}
             />
             <InputField
@@ -171,7 +171,7 @@ function MainPage() {
               placeholder="Address"
               value={personalInfo.address}
               onChange={(e) => {
-                setaPersonalInfo({ ...personalInfo, address: e.target.value });
+                setPersonalInfo({ ...personalInfo, address: e.target.value });
               }}
               style={{ gridColumn: "span 2" }}
             />
@@ -180,7 +180,7 @@ function MainPage() {
               placeholder="Email"
               value={personalInfo.email}
               onChange={(e) => {
-                setaPersonalInfo({ ...personalInfo, email: e.target.value });
+                setPersonalInfo({ ...personalInfo, email: e.target.value });
               }}
             />
             <InputField
@@ -188,7 +188,7 @@ function MainPage() {
               placeholder="Website"
               value={personalInfo.website}
               onChange={(e) => {
-                setaPersonalInfo({ ...personalInfo, website: e.target.value });
+                setPersonalInfo({ ...personalInfo, website: e.target.value });
               }}
             />
           </div>
@@ -197,7 +197,7 @@ function MainPage() {
             id="summary"
             value={personalInfo.summary}
             onChange={(e) => {
-              setaPersonalInfo({ ...personalInfo, summary: e.target.value });
+              setPersonalInfo({ ...personalInfo, summary: e.target.value });
             }}
             textarea={true}
             style={{ height: "10rem" }}
@@ -226,12 +226,13 @@ function MainPage() {
                       const newSkills = [...skills];
                       newSkills[index] = e.target.value;
                       setSkills(newSkills);
-                      console.log(newSkills);
                     }}
                     style={{ flex: "1" }}
                   />
                   <img
                     src={closeIcon}
+                    role="button"
+                    alt="Close Button"
                     className="h-6 w-6 ml-3 transition-transform hover:scale-115"
                     onClick={() => {
                       let newSkills = [
@@ -370,12 +371,12 @@ function MainPage() {
                     {experience.workingDetails.map((point, innerIndex) => {
                       return (
                         <div
-                          key={"workingdetail" + innerIndex}
+                          key={"workingdetail" + index + innerIndex}
                           className="flex flex-row items-center"
                         >
                           <InputField
-                            key={"workingdetail" + innerIndex}
-                            id={"workingdetail" + innerIndex}
+                            key={"workingdetail" + index + innerIndex}
+                            id={"workingdetail" + index + innerIndex}
                             value={point}
                             placeholder={"Achievement " + (innerIndex + 1)}
                             onChange={(e) => {
@@ -393,6 +394,8 @@ function MainPage() {
                           />
                           <img
                             src={closeIcon}
+                            role="button"
+                            alt="Close Button"
                             className="h-6 w-6 ml-3 transition-transform hover:scale-115"
                             onClick={() => {
                               let newProfessionalExperiences = [
@@ -465,7 +468,8 @@ function MainPage() {
                         const newEducationExperiences = [
                           ...educationExperiences,
                         ];
-                        newEducationExperiences[index].company = e.target.value;
+                        newEducationExperiences[index].institute =
+                          e.target.value;
                         setEducationExperiences(newEducationExperiences);
                       }}
                       style={{ flex: "1" }}
@@ -497,7 +501,7 @@ function MainPage() {
                           ...educationExperiences,
                         ];
                         newEducationExperiences[index].endDate = e.target.value;
-                        setProfessionalExperiences(newEducationExperiences);
+                        setEducationExperiences(newEducationExperiences);
                       }}
                       style={{ flex: "1" }}
                       disabled={experience.studyingAtPresent ? true : false}
@@ -547,8 +551,8 @@ function MainPage() {
                           className="flex flex-row items-center"
                         >
                           <InputField
-                            key={"information" + innerIndex}
-                            id={"information" + innerIndex}
+                            key={"information" + index + innerIndex}
+                            id={"information" + index + innerIndex}
                             value={point}
                             placeholder={"Information " + (innerIndex + 1)}
                             onChange={(e) => {
@@ -564,6 +568,8 @@ function MainPage() {
                           />
                           <img
                             src={closeIcon}
+                            role="button"
+                            alt="Close Button"
                             className="h-6 w-6 ml-3 transition-transform hover:scale-115"
                             onClick={() => {
                               let newEducationExperiences = [
@@ -643,6 +649,8 @@ function MainPage() {
                   />
                   <img
                     src={closeIcon}
+                    role="button"
+                    alt="Close Button"
                     className="h-6 w-6 ml-3 transition-transform hover:scale-115"
                     onClick={() => {
                       let newAdditionalInformations = [
@@ -672,7 +680,7 @@ function MainPage() {
           <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
             Download
           </button>
-          <img src={cvExample} className="mt-2 mb-6 w-full" />
+          <img alt="Sample CV" src={cvExample} className="mt-2 mb-6 w-full" />
         </div>
       </div>
     </>
