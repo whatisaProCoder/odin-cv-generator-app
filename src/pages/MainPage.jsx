@@ -5,11 +5,21 @@ import { useState } from "react";
 import { Templates } from "../components/templates";
 import SelectDropdown from "../components/SelectDropdown";
 import { AccentColors } from "../constants/accentColors";
+import InputField from "../components/InputField";
 
 function MainPage() {
   const [templateID, setTemplateID] = useState(Templates[0].id);
 
   const [accentColorID, setAccentColorID] = useState(AccentColors[0].id);
+
+  const [personalInfo, setaPersonalInfo] = useState({
+    name: "",
+    jobRole: "",
+    address: "",
+    email: "",
+    website: "",
+    summary: "",
+  });
 
   return (
     <>
@@ -59,11 +69,67 @@ function MainPage() {
                     key={accentColor.id}
                     className="h-4 w-full rounded-[0.2rem]"
                     style={{ backgroundColor: accentColor.color }}
+                    onClick={() => {
+                      setAccentColorID(accentColor.id);
+                    }}
                   />
                 );
               })}
             </SelectDropdown>
           </div>
+          <div className="mt-4 grid grid-cols-2 gap-4">
+            <InputField
+              id="name"
+              placeholder="Name"
+              value={personalInfo.name}
+              onChange={(e) => {
+                setaPersonalInfo({ ...personalInfo, name: e.target.value });
+              }}
+            />
+            <InputField
+              id="job-role"
+              placeholder="Job Role"
+              value={personalInfo.jobRole}
+              onChange={(e) => {
+                setaPersonalInfo({ ...personalInfo, jobRole: e.target.value });
+              }}
+            />
+            <InputField
+              id="address"
+              placeholder="Address"
+              value={personalInfo.address}
+              onChange={(e) => {
+                setaPersonalInfo({ ...personalInfo, address: e.target.value });
+              }}
+              style={{ gridColumn: "span 2" }}
+            />
+            <InputField
+              id="email"
+              placeholder="Email"
+              value={personalInfo.email}
+              onChange={(e) => {
+                setaPersonalInfo({ ...personalInfo, email: e.target.value });
+              }}
+            />
+            <InputField
+              id="website"
+              placeholder="Website"
+              value={personalInfo.website}
+              onChange={(e) => {
+                setaPersonalInfo({ ...personalInfo, website: e.target.value });
+              }}
+            />
+          </div>
+          <div className="mt-10 font-semibold text-[0.9rem] mb-4">Summary</div>
+          <InputField
+            id="summary"
+            value={personalInfo.summary}
+            onChange={(e) => {
+              setaPersonalInfo({ ...personalInfo, summary: e.target.value });
+            }}
+            textarea={true}
+            style={{ height: "10rem" }}
+          />
         </div>
         <div className="flex flex-col flex-1 pr-14">
           <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
