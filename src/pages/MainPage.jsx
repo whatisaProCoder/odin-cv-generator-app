@@ -374,7 +374,9 @@ function MainPage() {
                     <input
                       type="checkbox"
                       style={{
-                        accentColor: "#2263C8",
+                        accentColor: AccentColors.find(
+                          (accentColor) => accentColor.id === accentColorID
+                        ).color,
                         transform: "scale(1.25)",
                       }}
                       onChange={(e) => {
@@ -563,7 +565,9 @@ function MainPage() {
                     <input
                       type="checkbox"
                       style={{
-                        accentColor: "#2263C8",
+                        accentColor: AccentColors.find(
+                          (accentColor) => accentColor.id === accentColorID
+                        ).color,
                         transform: "scale(1.25)",
                       }}
                       onChange={(e) => {
@@ -771,7 +775,14 @@ function MainPage() {
               : { paddingRight: "3rem", position: "sticky", top: "5rem" }
           }
         >
-          <button className="bg-[#2263C8] border border-[#282828] rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end">
+          <button
+            style={{
+              backgroundColor: AccentColors.find(
+                (accentColor) => accentColor.id === accentColorID
+              ).color,
+            }}
+            className="border border-[#282828] text-white rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end"
+          >
             Download
           </button>
           <img alt="Sample CV" src={cvExample} className="mt-2 mb-6 w-full" />
