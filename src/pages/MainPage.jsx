@@ -674,7 +674,7 @@ function MainPage() {
                 >
                   {isTablet && (
                     <div className="flex flex-row items-center">
-                      <div className="flex-1" />
+                      <div className="flex-1 h-0.5 mr-2 rounded bg-[#282828]" />
                       <button
                         className="h-6 w-6 flex items-center justify-center bg-[#282828] rounded"
                         onClick={() => {
