@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Templates } from "../../components/templates";
 import { AccentColors } from "../../constants/accentColors";
 import Footer from "../../components/Footer";
@@ -14,6 +14,8 @@ import CVSection from "./CVSection";
 
 function MainPage() {
   const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
+
+  const [loaded, setLoaded] = useState(false);
 
   const [templateID, setTemplateID] = useState(Templates[0].id);
 
@@ -58,17 +60,84 @@ function MainPage() {
     { point: "", details: "" },
   ]);
 
-  const CVObject = {
-    templateID: templateID,
-    accentColorID: accentColorID,
-    personalInfo: personalInfo,
-    skills: skills,
-    professionalExperiences: professionalExperiences,
-    educationExperiences: educationExperiences,
-    additionalInformations: additionalInformations,
-  };
+  // Load saved CV on mount
+  useEffect(() => {
+    const savedCV = localStorage.getItem("cvData");
+    if (savedCV) {
+      const cvData = JSON.parse(savedCV);
 
-  console.log(CVObject);
+      setTemplateID(cvData.templateID ?? Templates[0].id);
+      setAccentColorID(cvData.accentColorID ?? AccentColors[0].id);
+      setPersonalInfo(
+        cvData.personalInfo ?? {
+          name: "",
+          jobRole: "",
+          address: "",
+          email: "",
+          website: "",
+          summary: "",
+        }
+      );
+      setSkills(cvData.skills ?? ["", "", ""]);
+      setProfessionalExperiences(
+        cvData.professionalExperiences ?? [
+          {
+            projectOrRole: "",
+            company: "",
+            startDate: "",
+            endDate: "",
+            workingAtPresent: false,
+            workingDetails: ["", "", ""],
+          },
+        ]
+      );
+      setEducationExperiences(
+        cvData.educationExperiences ?? [
+          {
+            course: "",
+            institute: "",
+            startDate: "",
+            endDate: "",
+            studyingAtPresent: false,
+            information: ["", "", ""],
+          },
+        ]
+      );
+      setAdditionalInformations(
+        cvData.additionalInformations ?? [
+          { point: "", details: "" },
+          { point: "", details: "" },
+          { point: "", details: "" },
+        ]
+      );
+    }
+    setLoaded(true);
+  }, []);
+
+  // Autosave effect
+  useEffect(() => {
+    if (!loaded) return;
+
+    const CVObject = {
+      templateID,
+      accentColorID,
+      personalInfo,
+      skills,
+      professionalExperiences,
+      educationExperiences,
+      additionalInformations,
+    };
+    localStorage.setItem("cvData", JSON.stringify(CVObject));
+  }, [
+    templateID,
+    accentColorID,
+    personalInfo,
+    skills,
+    professionalExperiences,
+    educationExperiences,
+    additionalInformations,
+    loaded,
+  ]);
 
   return (
     <>
