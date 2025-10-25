@@ -2,7 +2,7 @@ function Footer({ style }) {
   return (
     <div
       style={style}
-      className="bg-[#171717] border border-[#1E1E1E] px-4 py-6 max-md:pb-9 rounded-tl-md rounded-tr-md flex flex-row justify-center items-center font-medium text-[0.75rem]"
+      className="bg-[#171717] border border-[#1E1E1E] px-4 py-6 rounded-tl-md rounded-tr-md flex flex-row justify-center items-center font-medium text-[0.75rem]"
     >
       Made with 💙 and React, by
       <a
