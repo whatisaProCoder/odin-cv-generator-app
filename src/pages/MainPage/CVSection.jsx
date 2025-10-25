@@ -20,7 +20,7 @@ function CVSection({ accentColorID }) {
             (accentColor) => accentColor.id === accentColorID
           ).color,
         }}
-        className="border border-[#282828] text-white rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end"
+        className="transition-colors border border-[#282828] text-white rounded-sm text-[0.75rem] w-24 py-0.75 font-semibold self-end"
       >
         Download
       </button>
