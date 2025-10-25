@@ -76,7 +76,7 @@ function ProfessionalExpSection({
               </div>
               <div className="flex flex-row gap-4 max-md:flex-col">
                 <InputField
-                  id="course"
+                  id={`course-${index}`}
                   value={experience.course}
                   placeholder="Course"
                   onChange={(e) => {
@@ -87,7 +87,7 @@ function ProfessionalExpSection({
                   style={{ flex: "1" }}
                 />
                 <InputField
-                  id="institute"
+                  id={`institute-${index}`}
                   value={experience.institute}
                   placeholder="Institute"
                   onChange={(e) => {
@@ -102,7 +102,7 @@ function ProfessionalExpSection({
                 <div className="flex flex-row items-center gap-4 max-md:w-full md:flex-1">
                   <div className="text-[0.8rem] font-medium">Start Date</div>
                   <InputField
-                    id="start-date"
+                    id={`start-date-${index}`}
                     type="month"
                     value={experience.startDate}
                     onChange={(e) => {
@@ -118,7 +118,7 @@ function ProfessionalExpSection({
                     End Date
                   </div>
                   <InputField
-                    id="end-date"
+                    id={`start-date-${index}`}
                     type="month"
                     value={experience.endDate}
                     onChange={(e) => {
@@ -136,6 +136,7 @@ function ProfessionalExpSection({
                   Studying at present?
                 </div>
                 <input
+                  id={`studying-at-present-${index}`}
                   type="checkbox"
                   style={{
                     accentColor: "#2263C8",
@@ -171,7 +172,6 @@ function ProfessionalExpSection({
                       className="flex flex-row items-center"
                     >
                       <InputField
-                        key={"information" + index + innerIndex}
                         id={"information" + index + innerIndex}
                         value={point}
                         placeholder={"Information " + (innerIndex + 1)}

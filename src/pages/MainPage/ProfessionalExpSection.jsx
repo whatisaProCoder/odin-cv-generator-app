@@ -80,7 +80,7 @@ function ProfessionalExpSection({
               </div>
               <div className="flex flex-row gap-4 max-md:flex-col">
                 <InputField
-                  id="project-role"
+                  id={`project-role-${index}`}
                   value={experience.projectOrRole}
                   placeholder="Project / Role"
                   onChange={(e) => {
@@ -94,7 +94,7 @@ function ProfessionalExpSection({
                   style={{ flex: "1" }}
                 />
                 <InputField
-                  id="company"
+                  id={`company-${index}`}
                   value={experience.company}
                   placeholder="Company"
                   onChange={(e) => {
@@ -111,7 +111,7 @@ function ProfessionalExpSection({
                 <div className="flex flex-row items-center gap-4 max-md:w-full md:flex-1">
                   <div className="text-[0.8rem] font-medium">Start Date</div>
                   <InputField
-                    id="start-date"
+                    id={`start-date-${index}`}
                     type="month"
                     value={experience.startDate}
                     onChange={(e) => {
@@ -130,7 +130,7 @@ function ProfessionalExpSection({
                     End Date
                   </div>
                   <InputField
-                    id="end-date"
+                    id={`end-date-${index}`}
                     type="month"
                     value={experience.endDate}
                     onChange={(e) => {
@@ -151,6 +151,7 @@ function ProfessionalExpSection({
                   Working at present?
                 </div>
                 <input
+                  id={`working-at-present-${index}`}
                   type="checkbox"
                   style={{
                     accentColor: "#2263C8",
@@ -190,7 +191,6 @@ function ProfessionalExpSection({
                       className="flex flex-row items-center"
                     >
                       <InputField
-                        key={"workingdetail" + index + innerIndex}
                         id={"workingdetail" + index + innerIndex}
                         value={point}
                         placeholder={"Achievement " + (innerIndex + 1)}
