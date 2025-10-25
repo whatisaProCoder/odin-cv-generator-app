@@ -1,5 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import { AccentColors } from "../../constants/accentColors";
+
 import cvExample from "../../assets/images/cv-example.png";
 
 function CVSection({ accentColorID }) {

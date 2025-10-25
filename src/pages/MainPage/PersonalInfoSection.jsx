@@ -1,5 +1,6 @@
 import InputField from "../../components/InputField";
 import SelectDropdown from "../../components/SelectDropdown";
+
 import { AccentColors } from "../../constants/accentColors";
 
 function PersonalInfoSection({

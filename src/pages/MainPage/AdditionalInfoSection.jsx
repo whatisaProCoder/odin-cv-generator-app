@@ -3,6 +3,7 @@ import IconButton from "../../components/IconButton";
 
 import closeIcon from "../../assets/icons/close-icon.svg";
 import addIcon from "../../assets/icons/add-icon.svg";
+
 import { useMediaQuery } from "react-responsive";
 
 function AdditionalInfoSection({
