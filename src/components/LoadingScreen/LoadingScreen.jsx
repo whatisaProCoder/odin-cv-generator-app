@@ -6,7 +6,7 @@ function LoadingScreen({ style }) {
       <div className="flex flex-row items-center fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
         <div
           style={style}
-          className="border-[#2263C8] border-4 border-r-[#ededed] rounded-full h-8 w-8 spin bg-[#141414]"
+          className="border-[#447fdf] border-4 border-r-[#00000000] rounded-full h-8 w-8 spin bg-[#141414]"
         ></div>
         <div className="ml-4 mt-px text-[1.25rem]">Please wait...</div>
       </div>

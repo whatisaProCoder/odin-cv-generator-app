@@ -22,9 +22,9 @@
 }
 
 .spin {
-  animation: spin 1s linear infinite;
+  animation: spin 0.75s linear infinite;
 }
 
 .fade {
-  animation: fade 0.15s ease-out 1.5s forwards;
+  animation: fade 0.25s ease-out 1.5s forwards;
 }

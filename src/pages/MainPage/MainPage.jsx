@@ -1,5 +1,4 @@
 import Header from "../../components/Header";
-import LoadingScreen from "../../components/LoadingScreen";
 import { useEffect, useState } from "react";
 import { Templates } from "../../components/templates";
 import { AccentColors } from "../../constants/accentColors";
@@ -111,7 +110,6 @@ function MainPage() {
 
   return (
     <>
-      <LoadingScreen />
       <Header />
       <div
         className="pt-20 flex gap-6"
