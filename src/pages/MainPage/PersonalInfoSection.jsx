@@ -1,3 +1,4 @@
+import { useMediaQuery } from "react-responsive";
 import InputField from "../../components/InputField";
 import SelectDropdown from "../../components/SelectDropdown";
 
@@ -9,6 +10,8 @@ function PersonalInfoSection({
   personalInfo,
   setPersonalInfo,
 }) {
+  const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
+
   return (
     <>
       <div className="mt-12 flex flex-row items-center">
@@ -49,6 +52,7 @@ function PersonalInfoSection({
           onChange={(e) => {
             setPersonalInfo({ ...personalInfo, name: e.target.value });
           }}
+          style={{ gridColumn: isTablet ? "span 2" : "span 1" }}
         />
         <InputField
           id="job-role"
@@ -57,6 +61,7 @@ function PersonalInfoSection({
           onChange={(e) => {
             setPersonalInfo({ ...personalInfo, jobRole: e.target.value });
           }}
+          style={{ gridColumn: isTablet ? "span 2" : "span 1" }}
         />
         <InputField
           id="address"
@@ -74,6 +79,7 @@ function PersonalInfoSection({
           onChange={(e) => {
             setPersonalInfo({ ...personalInfo, email: e.target.value });
           }}
+          style={{ gridColumn: isTablet ? "span 2" : "span 1" }}
         />
         <InputField
           id="website"
@@ -82,6 +88,7 @@ function PersonalInfoSection({
           onChange={(e) => {
             setPersonalInfo({ ...personalInfo, website: e.target.value });
           }}
+          style={{ gridColumn: isTablet ? "span 2" : "span 1" }}
         />
       </div>
       <div className="mt-12 font-semibold text-[0.9rem] mb-4">Summary</div>

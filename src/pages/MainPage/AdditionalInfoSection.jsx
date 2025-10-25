@@ -41,7 +41,7 @@ function AdditionalInfoSection({
                 <div className="flex flex-row items-center">
                   <div className="flex-1 h-0.5 mr-2 rounded bg-[#282828]" />
                   <button
-                    className="h-6 w-6 flex items-center justify-center bg-[#282828] rounded"
+                    className="h-6 w-6 flex items-center justify-center bg-[#282828] transition-colors hover:bg-[#323232] border border-[#323232] rounded"
                     onClick={() => {
                       let newAdditionalInformations = [
                         ...additionalInformations,

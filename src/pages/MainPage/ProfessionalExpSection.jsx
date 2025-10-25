@@ -7,7 +7,6 @@ import closeIcon from "../../assets/icons/close-icon.svg";
 import addIcon from "../../assets/icons/add-icon.svg";
 
 function ProfessionalExpSection({
-  accentColorID,
   professionalExperiences,
   setProfessionalExperiences,
 }) {
@@ -40,8 +39,42 @@ function ProfessionalExpSection({
         {professionalExperiences.map((experience, index) => {
           return (
             <div key={"profexp" + index} className="flex flex-col gap-4">
-              <div className="text-[0.85rem] font-semibold">
-                {"Experience " + (index + 1)}
+              <div className="flex flex-row items-center">
+                <div className="text-[0.85rem] font-semibold">
+                  {"Experience " + (index + 1)}
+                </div>
+                <div className="ml-4 mr-2 flex-1 h-0.5 rounded bg-[#282828]" />
+                <button
+                  className="h-6 w-6 flex items-center justify-center bg-[#282828] transition-colors hover:bg-[#323232] border border-[#323232] rounded"
+                  onClick={() => {
+                    let newProfessionalExperiences = [
+                      ...professionalExperiences,
+                    ];
+                    newProfessionalExperiences = [
+                      ...newProfessionalExperiences.slice(0, index),
+                      ...newProfessionalExperiences.slice(index + 1),
+                    ];
+                    if (newProfessionalExperiences.length === 0) {
+                      newProfessionalExperiences = [
+                        {
+                          projectOrRole: "",
+                          company: "",
+                          startDate: "",
+                          endDate: "",
+                          workingAtPresent: false,
+                          workingDetails: ["", "", ""],
+                        },
+                      ];
+                    }
+                    setProfessionalExperiences(newProfessionalExperiences);
+                  }}
+                >
+                  <img
+                    src={closeIcon}
+                    alt="Close Button"
+                    className="h-6 w-6 transition-transform hover:scale-115"
+                  />
+                </button>
               </div>
               <div className="flex flex-row gap-4 max-md:flex-col">
                 <InputField
@@ -118,9 +151,7 @@ function ProfessionalExpSection({
                 <input
                   type="checkbox"
                   style={{
-                    accentColor: AccentColors.find(
-                      (accentColor) => accentColor.id === accentColorID
-                    ).color,
+                    accentColor: "#2263C8",
                     transform: "scale(1.25)",
                   }}
                   onChange={(e) => {

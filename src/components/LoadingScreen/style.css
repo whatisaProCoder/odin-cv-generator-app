@@ -1,0 +1,30 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    scale: 1;
+  }
+
+  to {
+    transform: rotate(360deg);
+    scale: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+.fade {
+  animation: fade 0.15s ease-out 1.5s forwards;
+}
