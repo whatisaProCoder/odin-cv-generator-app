@@ -68,47 +68,16 @@ function MainPage() {
 
       setTemplateID(cvData.templateID ?? Templates[0].id);
       setAccentColorID(cvData.accentColorID ?? AccentColors[0].id);
-      setPersonalInfo(
-        cvData.personalInfo ?? {
-          name: "",
-          jobRole: "",
-          address: "",
-          email: "",
-          website: "",
-          summary: "",
-        }
-      );
+      setPersonalInfo(cvData.personalInfo ?? personalInfo);
       setSkills(cvData.skills ?? ["", "", ""]);
       setProfessionalExperiences(
-        cvData.professionalExperiences ?? [
-          {
-            projectOrRole: "",
-            company: "",
-            startDate: "",
-            endDate: "",
-            workingAtPresent: false,
-            workingDetails: ["", "", ""],
-          },
-        ]
+        cvData.professionalExperiences ?? professionalExperiences
       );
       setEducationExperiences(
-        cvData.educationExperiences ?? [
-          {
-            course: "",
-            institute: "",
-            startDate: "",
-            endDate: "",
-            studyingAtPresent: false,
-            information: ["", "", ""],
-          },
-        ]
+        cvData.educationExperiences ?? educationExperiences
       );
       setAdditionalInformations(
-        cvData.additionalInformations ?? [
-          { point: "", details: "" },
-          { point: "", details: "" },
-          { point: "", details: "" },
-        ]
+        cvData.additionalInformations ?? additionalInformations
       );
     }
     setLoaded(true);
