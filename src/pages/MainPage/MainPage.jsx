@@ -1,16 +1,18 @@
-import Header from "../components/Header";
+import Header from "../../components/Header";
 
-import cvExample from "../assets/images/cv-example.png";
+import cvExample from "../../assets/images/cv-example.png";
 import { useState } from "react";
-import { Templates } from "../components/templates";
-import SelectDropdown from "../components/SelectDropdown";
-import { AccentColors } from "../constants/accentColors";
-import InputField from "../components/InputField";
-import addIcon from "../assets/icons/add-icon.svg";
-import closeIcon from "../assets/icons/close-icon.svg";
-import IconButton from "../components/IconButton";
-import Footer from "../components/Footer";
+import { Templates } from "../../components/templates";
+import SelectDropdown from "../../components/SelectDropdown";
+import { AccentColors } from "../../constants/accentColors";
+import InputField from "../../components/InputField";
+import addIcon from "../../assets/icons/add-icon.svg";
+import closeIcon from "../../assets/icons/close-icon.svg";
+import IconButton from "../../components/IconButton";
+import Footer from "../../components/Footer";
 import { useMediaQuery } from "react-responsive";
+import ChooseTemplateSection from "./ChooseTemplateSection";
+import PersonalInfoSection from "./PersonalInfoSection";
 
 function MainPage() {
   const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
@@ -116,116 +118,15 @@ function MainPage() {
         style={{ flexDirection: isTablet ? "column" : "row" }}
       >
         <div className="px-6 flex flex-col flex-1">
-          <div className="flex flex-row items-center">
-            <div className="font-semibold text-[0.9rem]">Choose Template</div>
-            <SelectDropdown
-              className="ml-6 flex-1"
-              selected={
-                <div className="font-medium text-[0.8rem] pl-3">
-                  {
-                    Templates.find((template) => template.id === templateID)
-                      .name
-                  }
-                </div>
-              }
-            >
-              {Templates.map((templateObj) => {
-                return (
-                  <div
-                    key={templateObj.id}
-                    className="pl-2 py-0.5 text-[0.8rem] hover:bg-[#282828] rounded-[0.2rem]"
-                    onClick={() => {
-                      setTemplateID(templateObj.id);
-                    }}
-                  >
-                    {templateObj.name}
-                  </div>
-                );
-              })}
-            </SelectDropdown>
-          </div>
-          <div className="mt-12 flex flex-row items-center">
-            <div className="font-semibold text-[0.9rem] flex-1">
-              Personal Information
-            </div>
-            <SelectDropdown
-              selected={
-                <div
-                  className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5 transition-colors"
-                  style={{
-                    backgroundColor: AccentColors.find(
-                      (accentColor) => accentColor.id === accentColorID
-                    ).color,
-                  }}
-                />
-              }
-            >
-              {AccentColors.map((accentColor) => {
-                return (
-                  <div
-                    key={accentColor.id}
-                    className="h-4 w-full rounded-[0.2rem]"
-                    style={{ backgroundColor: accentColor.color }}
-                    onClick={() => {
-                      setAccentColorID(accentColor.id);
-                    }}
-                  />
-                );
-              })}
-            </SelectDropdown>
-          </div>
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            <InputField
-              id="name"
-              placeholder="Name"
-              value={personalInfo.name}
-              onChange={(e) => {
-                setPersonalInfo({ ...personalInfo, name: e.target.value });
-              }}
-            />
-            <InputField
-              id="job-role"
-              placeholder="Job Role"
-              value={personalInfo.jobRole}
-              onChange={(e) => {
-                setPersonalInfo({ ...personalInfo, jobRole: e.target.value });
-              }}
-            />
-            <InputField
-              id="address"
-              placeholder="Address"
-              value={personalInfo.address}
-              onChange={(e) => {
-                setPersonalInfo({ ...personalInfo, address: e.target.value });
-              }}
-              style={{ gridColumn: "span 2" }}
-            />
-            <InputField
-              id="email"
-              placeholder="Email"
-              value={personalInfo.email}
-              onChange={(e) => {
-                setPersonalInfo({ ...personalInfo, email: e.target.value });
-              }}
-            />
-            <InputField
-              id="website"
-              placeholder="Website"
-              value={personalInfo.website}
-              onChange={(e) => {
-                setPersonalInfo({ ...personalInfo, website: e.target.value });
-              }}
-            />
-          </div>
-          <div className="mt-12 font-semibold text-[0.9rem] mb-4">Summary</div>
-          <InputField
-            id="summary"
-            value={personalInfo.summary}
-            onChange={(e) => {
-              setPersonalInfo({ ...personalInfo, summary: e.target.value });
-            }}
-            textarea={true}
-            style={{ height: "10rem" }}
+          <ChooseTemplateSection
+            templateID={templateID}
+            setTemplateID={setTemplateID}
+          />
+          <PersonalInfoSection
+            accentColorID={accentColorID}
+            setAccentColorID={setAccentColorID}
+            personalInfo={personalInfo}
+            setPersonalInfo={setPersonalInfo}
           />
           <div className="mt-12 flex flex-row items-center mb-4">
             <div className="font-semibold text-[0.9rem] flex-1">Skills</div>
