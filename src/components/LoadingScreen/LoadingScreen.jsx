@@ -8,7 +8,7 @@ function LoadingScreen({ style }) {
           style={style}
           className="border-[#2263C8] border-4 border-r-[#ededed] rounded-full h-8 w-8 spin bg-[#141414]"
         ></div>
-        <div className="ml-4 text-[1.25rem]">Please Wait...</div>
+        <div className="ml-4 mt-px text-[1.25rem]">Please wait...</div>
       </div>
     </div>
   );

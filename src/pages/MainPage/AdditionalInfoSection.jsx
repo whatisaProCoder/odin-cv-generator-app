@@ -39,7 +39,7 @@ function AdditionalInfoSection({
             >
               {isTablet && (
                 <div className="flex flex-row items-center">
-                  <div className="flex-1 h-0.5 mr-2 rounded bg-[#282828]" />
+                  <div className="flex-1 h-px mr-2 rounded bg-[#282828]" />
                   <button
                     className="h-6 w-6 flex items-center justify-center bg-[#282828] transition-colors hover:bg-[#323232] border border-[#323232] rounded"
                     onClick={() => {
@@ -71,7 +71,7 @@ function AdditionalInfoSection({
               <InputField
                 id={"additionalinfopoint" + index}
                 value={info.point}
-                placeholder={"Point " + (index + 1)}
+                placeholder={"Category " + (index + 1)}
                 onChange={(e) => {
                   const newAdditionalInformations = [...additionalInformations];
                   newAdditionalInformations[index].point = e.target.value;

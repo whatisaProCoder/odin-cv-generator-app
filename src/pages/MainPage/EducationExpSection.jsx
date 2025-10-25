@@ -36,12 +36,14 @@ function ProfessionalExpSection({
       <div className="mt-4 flex flex-col gap-6">
         {educationExperiences.map((experience, index) => {
           return (
-            <div key={"eduexp" + index} className="flex flex-col gap-4">
+            <div
+              key={"eduexp" + index}
+              className="flex flex-col gap-4 p-4 border border-[#282828] rounded-md"
+            >
               <div className="flex flex-row items-center">
-                <div className="text-[0.85rem] font-semibold">
+                <div className="flex-1 text-[0.85rem] font-semibold">
                   {"Education " + (index + 1)}
                 </div>
-                <div className="ml-4 mr-2 flex-1 h-0.5 rounded bg-[#282828]" />
                 <button
                   className="h-6 w-6 flex items-center justify-center bg-[#282828] transition-colors hover:bg-[#323232] border border-[#323232] rounded"
                   onClick={() => {
@@ -97,7 +99,7 @@ function ProfessionalExpSection({
                 />
               </div>
               <div className="flex flex-row items-center gap-4 max-md:flex-col">
-                <div className="flex flex-row items-center gap-4 max-md:w-full">
+                <div className="flex flex-row items-center gap-4 max-md:w-full md:flex-1">
                   <div className="text-[0.8rem] font-medium">Start Date</div>
                   <InputField
                     id="start-date"
@@ -111,7 +113,7 @@ function ProfessionalExpSection({
                     style={{ flex: "1" }}
                   />
                 </div>
-                <div className="flex flex-row items-center gap-4 max-md:w-full">
+                <div className="flex flex-row items-center gap-4 max-md:w-full md:flex-1">
                   <div className="text-[0.8rem] font-medium max-md:mr-[0.4rem]">
                     End Date
                   </div>

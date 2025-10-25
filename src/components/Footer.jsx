@@ -8,6 +8,7 @@ function Footer({ style }) {
       <a
         href="https://www.github.com/whatisaProCoder"
         className="text-[#3B83F2] font-bold ml-1 underline"
+        target="_blank"
       >
         whatisaProCoder
       </a>
