@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Templates } from "../../components/templates";
 import { AccentColors } from "../../constants/accentColors";
 import Footer from "../../components/Footer";
@@ -60,12 +60,32 @@ function MainPage() {
     { point: "", details: "" },
   ]);
 
-  // Load saved CV on mount
+  const CVObject = useMemo(
+    () => ({
+      templateID,
+      accentColorID,
+      personalInfo,
+      skills,
+      professionalExperiences,
+      educationExperiences,
+      additionalInformations,
+    }),
+    [
+      templateID,
+      accentColorID,
+      personalInfo,
+      skills,
+      professionalExperiences,
+      educationExperiences,
+      additionalInformations,
+    ]
+  );
+
+  // Load saved CV
   useEffect(() => {
     const savedCV = localStorage.getItem("cvData");
     if (savedCV) {
       const cvData = JSON.parse(savedCV);
-
       setTemplateID(cvData.templateID ?? Templates[0].id);
       setAccentColorID(cvData.accentColorID ?? AccentColors[0].id);
       setPersonalInfo(cvData.personalInfo ?? personalInfo);
@@ -81,32 +101,14 @@ function MainPage() {
       );
     }
     setLoaded(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Autosave effect
+  // Autosave CV
   useEffect(() => {
     if (!loaded) return;
-
-    const CVObject = {
-      templateID,
-      accentColorID,
-      personalInfo,
-      skills,
-      professionalExperiences,
-      educationExperiences,
-      additionalInformations,
-    };
     localStorage.setItem("cvData", JSON.stringify(CVObject));
-  }, [
-    templateID,
-    accentColorID,
-    personalInfo,
-    skills,
-    professionalExperiences,
-    educationExperiences,
-    additionalInformations,
-    loaded,
-  ]);
+  }, [CVObject, loaded]);
 
   return (
     <>
@@ -141,7 +143,7 @@ function MainPage() {
           />
           {!isTablet && <Footer style={{ marginTop: "4rem" }} />}
         </div>
-        <CVSection />
+        <CVSection cvData={CVObject} />
         {isTablet && (
           <Footer
             style={{
