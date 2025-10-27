@@ -150,7 +150,7 @@ function UIUXDesigner({ cvData, ref }) {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={ref}>
       <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <div className="w-[900px] h-[1270px] bg-white px-8 py-10 flex flex-col text-black font-[Poppins]">
+          <div className="w-[900px] h-[1270px] bg-white px-8 pt-10 flex flex-col text-black font-[Poppins]">
             <div
               className={`text-[2.25rem] font-bold`}
               style={{ color: accentColor }}
