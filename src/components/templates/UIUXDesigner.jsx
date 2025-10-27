@@ -203,20 +203,24 @@ function UIUXDesigner({ cvData, ref }) {
                   <div key={index}>
                     <div className="flex flex-row items-center font-semibold gap-2">
                       <div>{project.title}</div>
-                      <a
-                        href={project.repoLink}
-                        target="_blank"
-                        className="underline text-[#232efd]"
-                      >
-                        [GitHub]
-                      </a>
-                      <a
-                        href={project.liveLink}
-                        target="_blank"
-                        className="underline text-[#232efd]"
-                      >
-                        [Link]
-                      </a>
+                      {project.repoLink !== "" && (
+                        <a
+                          href={project.repoLink}
+                          target="_blank"
+                          className="underline text-[#232efd]"
+                        >
+                          [GitHub]
+                        </a>
+                      )}
+                      {project.liveLink !== "" && (
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          className="underline text-[#232efd]"
+                        >
+                          [Link]
+                        </a>
+                      )}
                     </div>
                     <ul className="ml-6 list-disc">
                       {project.details.map((detail, innerIndex) => {
