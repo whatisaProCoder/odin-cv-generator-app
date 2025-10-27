@@ -1,7 +1,7 @@
 import { AccentColors } from "../../constants/accentColors";
 import { convertDate } from "../../utils/dateConverter";
 
-function UIUXDesigner({ cvData }) {
+function UIUXDesigner({ cvData, ref }) {
   const accentColor = AccentColors.find(
     (accentColor) => accentColor.id === cvData.accentColorID
   ).color;
@@ -120,7 +120,7 @@ function UIUXDesigner({ cvData }) {
   }
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={svgRef}>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={ref}>
       <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
           <div className="w-[900px] h-[1270px] bg-white px-8 py-12 flex flex-col text-black">
