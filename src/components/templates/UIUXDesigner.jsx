@@ -14,7 +14,7 @@ function UIUXDesigner({ cvData, ref }) {
       email: "hello@reallygreatsite.com",
       website: "www.reallygreatsite.com",
       summary:
-        "UX Designer with a focus on delivering impactful results, eager to tackle dynamic challenges and apply creativity to craft intuitive user experiences. Demonstrated proficiency in project management, user-centric problem-solving, and seamless collaboration across teams. Skilled in leveraging state-of-the-art tools and methodologies to streamline processes and elevate user satisfaction",
+        "UX Designer with a focus on delivering impactful results, eager to tackle dynamic challenges and apply creativity to craft intuitive user experiences. Demonstrated proficiency in project management, user-centric problem-solving, and seamless collaboration across teams.",
     },
     skills: [
       "Prototyping Tools",
@@ -27,6 +27,26 @@ function UIUXDesigner({ cvData, ref }) {
       "Responsive Design",
       "User Testing Tools",
     ],
+    projects: [
+      {
+        title: "Factory Analytics Dashboard",
+        liveLink: "https://www.figma.com/proto/orion-dashboard-v1",
+        repoLink: "https://www.reallygreatsite.com/case-study/orion-dashboard",
+        details: [
+          "Designed a real-time analytics dashboard translating complex factory data into actionable insights.",
+          "Built a scalable Figma design system with data visualization components and WCAG AA accessibility.",
+        ],
+      },
+      {
+        title: "XarrowAI - Robotic Control Interface",
+        liveLink: "https://www.reallygreatsite.com/case-study/xarrow-robotics",
+        repoLink: "https://github.com/xarrow-ai/robotics-interface",
+        details: [
+          "Redesigned a robotic control panel, simplifying a 12-step programming task into a 4-step wizard.",
+          "Worked with engineers to implement the React UI, ensuring feasibility on industrial hardware.",
+        ],
+      },
+    ],
     professionalExperiences: [
       {
         projectOrRole: "Instant Chartz App",
@@ -35,14 +55,14 @@ function UIUXDesigner({ cvData, ref }) {
         endDate: "",
         workingAtPresent: true,
         workingDetails: [
-          "Led development of an advanced automation system, achieving a 15% increase in operational efficiency.",
-          "Streamlined manufacturing processes, reducing production costs by 10%.",
-          "Implemented preventive maintenance strategies, resulting in a 20% decrease in equipment downtime.",
+          "Boosted operational efficiency 15% by leading automation system development.",
+          "Cut production costs 10% through manufacturing process streamlining.",
+          "Reduced equipment downtime 20% via new preventive maintenance strategies.",
         ],
       },
       {
         projectOrRole: "System UX Engineer",
-        company: "XarrowAI Industries",
+        company: "Morcelle Program",
         startDate: "2021-02",
         endDate: "2022-12",
         workingAtPresent: false,
@@ -86,7 +106,7 @@ function UIUXDesigner({ cvData, ref }) {
       {
         point: "Awards/Activities",
         details:
-          "Most Innovative Employer of the Year (2021), Overall Best Employee Division Two (2024), Onboarding Project Lead (2023)",
+          "Most Innovative Employer of the Year (2021), Overall Best Employee (2024)",
       },
     ],
   };
@@ -96,6 +116,13 @@ function UIUXDesigner({ cvData, ref }) {
     skills = cvData.skills;
   } else {
     skills = sampleData.skills;
+  }
+
+  let projects;
+  if (cvData.projects[0].title !== "") {
+    projects = cvData.projects;
+  } else {
+    projects = sampleData.projects;
   }
 
   let professionalExperiences;
@@ -123,7 +150,7 @@ function UIUXDesigner({ cvData, ref }) {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={ref}>
       <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <div className="w-[900px] h-[1270px] bg-white px-8 py-12 flex flex-col text-black font-[Poppins]">
+          <div className="w-[900px] h-[1270px] bg-white px-8 py-10 flex flex-col text-black font-[Poppins]">
             <div
               className={`text-[2.25rem] font-bold`}
               style={{ color: accentColor }}
@@ -150,7 +177,7 @@ function UIUXDesigner({ cvData, ref }) {
               {cvData.personalInfo.summary || sampleData.personalInfo.summary}
             </div>
             <div
-              className="mt-8 border-t border-b px-4 py-1 font-bold"
+              className="mt-4 border-t border-b px-4 py-1 font-bold"
               style={{ color: accentColor, borderColor: accentColor }}
             >
               TECHNICAL SKILLS
@@ -165,7 +192,49 @@ function UIUXDesigner({ cvData, ref }) {
               })}
             </div>
             <div
-              className="mt-8 border-t border-b px-4 py-1 font-bold"
+              className="mt-4 border-t border-b px-4 py-1 font-bold"
+              style={{ color: accentColor, borderColor: accentColor }}
+            >
+              PROJECTS
+            </div>
+            <div className="mt-1.5">
+              {projects.map((project, index) => {
+                return (
+                  <div key={index}>
+                    <div className="flex flex-row items-center font-semibold gap-2">
+                      <div>{project.title}</div>
+                      <a
+                        href={project.repoLink}
+                        target="_blank"
+                        style={{ color: accentColor }}
+                        className="underline"
+                      >
+                        [GitHub]
+                      </a>
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        style={{ color: accentColor }}
+                        className="underline"
+                      >
+                        [Link]
+                      </a>
+                    </div>
+                    <ul className="ml-6 list-disc">
+                      {project.details.map((detail, innerIndex) => {
+                        return (
+                          detail !== "" && (
+                            <li key={`${index}-${innerIndex}`}>{detail}</li>
+                          )
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+            <div
+              className="mt-4 border-t border-b px-4 py-1 font-bold"
               style={{ color: accentColor, borderColor: accentColor }}
             >
               PROFESSIONAL EXPERIENCE
@@ -200,7 +269,7 @@ function UIUXDesigner({ cvData, ref }) {
               })}
             </div>
             <div
-              className="mt-8 border-t border-b px-4 py-1 font-bold"
+              className="mt-4 border-t border-b px-4 py-1 font-bold"
               style={{ color: accentColor, borderColor: accentColor }}
             >
               EDUCATION
@@ -234,7 +303,7 @@ function UIUXDesigner({ cvData, ref }) {
               })}
             </div>
             <div
-              className="mt-8 border-t border-b px-4 py-1 font-bold"
+              className="mt-4 border-t border-b px-4 py-1 font-bold"
               style={{ color: accentColor, borderColor: accentColor }}
             >
               ADDITIONAL INFORMATION

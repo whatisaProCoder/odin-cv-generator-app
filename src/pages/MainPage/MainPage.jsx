@@ -11,6 +11,7 @@ import ProfessionalExpSection from "./ProfessionalExpSection";
 import EducationExpSection from "./EducationExpSection";
 import AdditionalInfoSection from "./AdditionalInfoSection";
 import CVSection from "./CVSection";
+import ProjectSection from "./ProjectSection";
 
 function MainPage() {
   const isTablet = useMediaQuery({ query: "(max-width: 768px)" });
@@ -31,6 +32,15 @@ function MainPage() {
   });
 
   const [skills, setSkills] = useState(["", "", ""]);
+
+  const [projects, setProjects] = useState([
+    {
+      title: "",
+      liveLink: "",
+      repoLink: "",
+      details: ["", "", ""],
+    },
+  ]);
 
   const [professionalExperiences, setProfessionalExperiences] = useState([
     {
@@ -66,6 +76,7 @@ function MainPage() {
       accentColorID,
       personalInfo,
       skills,
+      projects,
       professionalExperiences,
       educationExperiences,
       additionalInformations,
@@ -75,6 +86,7 @@ function MainPage() {
       accentColorID,
       personalInfo,
       skills,
+      projects,
       professionalExperiences,
       educationExperiences,
       additionalInformations,
@@ -90,6 +102,7 @@ function MainPage() {
       setAccentColorID(cvData.accentColorID ?? AccentColors[0].id);
       setPersonalInfo(cvData.personalInfo ?? personalInfo);
       setSkills(cvData.skills ?? ["", "", ""]);
+      setProjects(cvData.projects ?? projects);
       setProfessionalExperiences(
         cvData.professionalExperiences ?? professionalExperiences
       );
@@ -129,6 +142,7 @@ function MainPage() {
             setPersonalInfo={setPersonalInfo}
           />
           <SkillsSection skills={skills} setSkills={setSkills} />
+          <ProjectSection projects={projects} setProjects={setProjects} />
           <ProfessionalExpSection
             professionalExperiences={professionalExperiences}
             setProfessionalExperiences={setProfessionalExperiences}
