@@ -21,7 +21,7 @@ function PersonalInfoSection({
         <SelectDropdown
           selected={
             <div
-              className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5 transition-colors"
+              className="h-3.5 w-3.5 rounded-full ml-1.5 mr-0.5 border border-[#282828] transition-colors"
               style={{
                 backgroundColor: AccentColors.find(
                   (accentColor) => accentColor.id === accentColorID
@@ -34,7 +34,7 @@ function PersonalInfoSection({
             return (
               <div
                 key={accentColor.id}
-                className="h-4 w-full rounded-[0.2rem]"
+                className="h-4 w-full rounded-[0.2rem] border border-[#282828]"
                 style={{ backgroundColor: accentColor.color }}
                 onClick={() => {
                   setAccentColorID(accentColor.id);

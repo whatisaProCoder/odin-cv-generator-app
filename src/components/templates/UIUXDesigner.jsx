@@ -31,7 +31,7 @@ function UIUXDesigner({ cvData, ref }) {
       {
         title: "Factory Analytics Dashboard",
         liveLink: "https://www.figma.com/proto/orion-dashboard-v1",
-        repoLink: "https://www.reallygreatsite.com/case-study/orion-dashboard",
+        repoLink: "https://github.com/orion/robotics-interface",
         details: [
           "Designed a real-time analytics dashboard translating complex factory data into actionable insights.",
           "Built a scalable Figma design system with data visualization components and WCAG AA accessibility.",
@@ -206,16 +206,14 @@ function UIUXDesigner({ cvData, ref }) {
                       <a
                         href={project.repoLink}
                         target="_blank"
-                        style={{ color: accentColor }}
-                        className="underline"
+                        className="underline text-[#232efd]"
                       >
                         [GitHub]
                       </a>
                       <a
                         href={project.liveLink}
                         target="_blank"
-                        style={{ color: accentColor }}
-                        className="underline"
+                        className="underline text-[#232efd]"
                       >
                         [Link]
                       </a>
