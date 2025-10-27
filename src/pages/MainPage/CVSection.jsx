@@ -10,6 +10,9 @@ function CVSection({ cvData }) {
 
   const handlePrint = useReactToPrint({
     contentRef: svgRef,
+    documentTitle: cvData.personalInfo.name
+      ? `${cvData.personalInfo.name}_CV`
+      : "CV_Generated",
     pageStyle: `
       @page {
         size: A4;

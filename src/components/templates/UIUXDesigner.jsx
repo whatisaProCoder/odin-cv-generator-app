@@ -123,7 +123,7 @@ function UIUXDesigner({ cvData, ref }) {
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={ref}>
       <foreignObject width="100%" height="100%">
         <div xmlns="http://www.w3.org/1999/xhtml">
-          <div className="w-[900px] h-[1270px] bg-white px-8 py-12 flex flex-col text-black">
+          <div className="w-[900px] h-[1270px] bg-white px-8 py-12 flex flex-col text-black font-[Poppins]">
             <div
               className={`text-[2.25rem] font-bold`}
               style={{ color: accentColor }}
@@ -174,7 +174,7 @@ function UIUXDesigner({ cvData, ref }) {
               {professionalExperiences.map((profExp, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex flex-row justify-between font-bold">
+                    <div className="flex flex-row justify-between font-semibold">
                       <div>{`${profExp.projectOrRole}${
                         profExp.company !== "" ? "," : ""
                       } ${profExp.company}`}</div>
@@ -188,7 +188,11 @@ function UIUXDesigner({ cvData, ref }) {
                     </div>
                     <ul className="ml-6 list-disc">
                       {profExp.workingDetails.map((detail, innerIndex) => {
-                        return <li key={`${index}-${innerIndex}`}>{detail}</li>;
+                        return (
+                          detail !== "" && (
+                            <li key={`${index}-${innerIndex}`}>{detail}</li>
+                          )
+                        );
                       })}
                     </ul>
                   </div>
@@ -205,7 +209,7 @@ function UIUXDesigner({ cvData, ref }) {
               {educationExperiences.map((eduExp, index) => {
                 return (
                   <div key={index}>
-                    <div className="flex flex-row justify-between font-bold">
+                    <div className="flex flex-row justify-between font-semibold">
                       <div>{eduExp.course}</div>
                       <div>
                         {convertDate(eduExp.startDate) +
@@ -218,7 +222,11 @@ function UIUXDesigner({ cvData, ref }) {
                     <div>{eduExp.institute}</div>
                     <ul className="ml-6 list-disc">
                       {eduExp.information.map((detail, innerIndex) => {
-                        return <li key={`${index}-${innerIndex}`}>{detail}</li>;
+                        return (
+                          detail !== "" && (
+                            <li key={`${index}-${innerIndex}`}>{detail}</li>
+                          )
+                        );
                       })}
                     </ul>
                   </div>
@@ -236,7 +244,7 @@ function UIUXDesigner({ cvData, ref }) {
                 {additionalInformations.map((info, index) => {
                   return (
                     <li key={index}>
-                      <span className="font-bold">{info.point}:</span>{" "}
+                      <span className="font-semibold">{info.point}:</span>{" "}
                       {info.details}
                     </li>
                   );
