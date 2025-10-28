@@ -167,12 +167,12 @@ function HumanResource({ cvData, ref }) {
               style={{ backgroundColor: `${accentColor}16` }}
             >
               <div
-                className="text-[2.5rem] font-medium text-center"
+                className="text-[2.5rem] font-semibold text-center"
                 style={{ color: accentColor }}
               >
                 {cvData.personalInfo.name || sampleData.personalInfo.name}
               </div>
-              <div className="mt-2 text-[1.25rem] text-center">
+              <div className="mt-2 text-[1.25rem] font-medium text-center">
                 {cvData.personalInfo.jobRole || sampleData.personalInfo.jobRole}
               </div>
               <div
