@@ -36,7 +36,13 @@ function CVSection({ cvData }) {
       style={
         isTablet
           ? { padding: "1.5rem" }
-          : { paddingRight: "3rem", position: "sticky", top: "5rem", flex: "1" }
+          : {
+              paddingRight: "3rem",
+              position: "sticky",
+              top: "5rem",
+              paddingBottom: "1rem",
+              flex: "1",
+            }
       }
     >
       <button
