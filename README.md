@@ -20,9 +20,9 @@ The CV Generator App is a single-page application that allows users to create pr
 
 ### Core Technologies
 
-- **React 19.1.1**: Frontend framework for building the user interface
-- **Vite 7.1.7**: Build tool and development server for fast development
-- **Tailwind CSS 4.1.16**: Utility-first CSS framework for styling
+- **React 19**: Frontend framework for building the user interface
+- **Vite 7**: Build tool and development server for fast development
+- **Tailwind CSS 4**: Utility-first CSS framework for styling
 
 ### Key Libraries
 
@@ -233,4 +233,4 @@ Users can add or remove entries for:
 - LocalStorage API support required
 - Print functionality requires browser print capabilities
 
-Made with 💙 and React, by Pritam Debnath.
+##### Made with 💙 and React, by Pritam Debnath.
