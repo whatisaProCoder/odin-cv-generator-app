@@ -163,9 +163,11 @@ function UIUXDesigner({ cvData, ref }) {
                 sampleData.personalInfo.jobRole}
             </div>
             <div>{`${
-              cvData.personalInfo.address || "123 Anywhere St., Any City"
-            } | ${cvData.personalInfo.email || "hello@reallygreatsite.com"} | ${
-              cvData.personalInfo.website || "www.reallygreatsite.com"
+              cvData.personalInfo.address || sampleData.personalInfo.address
+            } | ${
+              cvData.personalInfo.email || sampleData.personalInfo.email
+            } | ${
+              cvData.personalInfo.website || sampleData.personalInfo.website
             }`}</div>
             <div
               className="mt-8 border-t border-b px-4 py-1 font-bold"
@@ -205,7 +207,7 @@ function UIUXDesigner({ cvData, ref }) {
                       <div>{project.title}</div>
                       {project.repoLink !== "" && (
                         <a
-                          href={project.repoLink}
+                          href={`https://${project.repoLink}`}
                           target="_blank"
                           className="underline text-[#232efd]"
                         >
@@ -214,7 +216,7 @@ function UIUXDesigner({ cvData, ref }) {
                       )}
                       {project.liveLink !== "" && (
                         <a
-                          href={project.liveLink}
+                          href={`https://${project.liveLink}`}
                           target="_blank"
                           className="underline text-[#232efd]"
                         >

@@ -155,9 +155,11 @@ function SoftwareEngineer({ cvData, ref }) {
                 sampleData.personalInfo.name}
             </div>
             <div className="text-center">{`${
-              cvData.personalInfo.address || "123 Anywhere St., Any City"
-            } | ${cvData.personalInfo.email || "hello@reallygreatsite.com"} | ${
-              cvData.personalInfo.website || "www.reallygreatsite.com"
+              cvData.personalInfo.address || sampleData.personalInfo.address
+            } | ${
+              cvData.personalInfo.email || sampleData.personalInfo.email
+            } | ${
+              cvData.personalInfo.website || sampleData.personalInfo.website
             }`}</div>
             <div className="mt-2 text-[1.5rem] font-bold text-center">
               {cvData.personalInfo.jobRole.toUpperCase() ||
@@ -210,7 +212,7 @@ function SoftwareEngineer({ cvData, ref }) {
                       <div>{project.title}</div>
                       {project.repoLink !== "" && (
                         <a
-                          href={project.repoLink}
+                          href={`https://${project.repoLink}`}
                           target="_blank"
                           className="underline text-[#232efd]"
                         >
@@ -219,7 +221,7 @@ function SoftwareEngineer({ cvData, ref }) {
                       )}
                       {project.liveLink !== "" && (
                         <a
-                          href={project.liveLink}
+                          href={`https://${project.liveLink}`}
                           target="_blank"
                           className="underline text-[#232efd]"
                         >
