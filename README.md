@@ -237,4 +237,8 @@ Users can add or remove entries for:
 
 This project was developed as part of _[The Odin Project](https://www.theodinproject.com)_ curriculum. Special thanks to the **TOP community** for their invaluable resources, guidance, and support throughout the learning journey.
 
+## License
+
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
+
 #### Made with 💙 and React, by Pritam Debnath.
