@@ -240,5 +240,3 @@ This project was developed as part of _[The Odin Project](https://www.theodinpro
 ## License
 
 This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
-
-#### Made with 💙 and React, by Pritam Debnath.
