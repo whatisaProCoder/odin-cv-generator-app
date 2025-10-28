@@ -186,15 +186,15 @@ function SoftwareEngineer({ cvData, ref }) {
             >
               TECHNICAL SKILLS
             </div>
-            <div
-              className={`mt-1.5 px-8 grid grid-rows-3 grid-cols-${Math.ceil(
+            <ul
+              className={`mt-1.5 ml-8 px-8 grid grid-rows-3 grid-cols-${Math.ceil(
                 skills.length / 3
-              )} grid-flow-col`}
+              )} grid-flow-col list-disc`}
             >
               {skills.map((skill, index) => {
-                return <div key={index}>{skill}</div>;
+                return <li key={index}>{skill}</li>;
               })}
-            </div>
+            </ul>
             <div
               className={`mt-6 px-8 py-1 font-bold`}
               style={{
