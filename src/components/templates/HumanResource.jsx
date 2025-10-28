@@ -157,6 +157,11 @@ function HumanResource({ cvData, ref }) {
     additionalInformations = sampleData.additionalInformations;
   }
 
+  const firstNameLength =
+    cvData.personalInfo.name !== ""
+      ? cvData.personalInfo.name.split(" ")[0].length
+      : sampleData.personalInfo.name.split(" ")[0].length;
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1270" ref={ref}>
       <foreignObject width="100%" height="100%">
@@ -167,8 +172,11 @@ function HumanResource({ cvData, ref }) {
               style={{ backgroundColor: `${accentColor}16` }}
             >
               <div
-                className="text-[2.5rem] font-semibold text-center"
-                style={{ color: accentColor }}
+                className="font-semibold text-center"
+                style={{
+                  color: accentColor,
+                  fontSize: firstNameLength >= 9 ? "2rem" : "2.5rem",
+                }}
               >
                 {cvData.personalInfo.name || sampleData.personalInfo.name}
               </div>
