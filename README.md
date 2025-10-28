@@ -233,4 +233,8 @@ Users can add or remove entries for:
 - LocalStorage API support required
 - Print functionality requires browser print capabilities
 
-##### Made with 💙 and React, by Pritam Debnath.
+## Acknowledgments
+
+This project was developed as part of _[The Odin Project](https://www.theodinproject.com)_ curriculum. Special thanks to the **TOP community** for their invaluable resources, guidance, and support throughout the learning journey.
+
+#### Made with 💙 and React, by Pritam Debnath.
