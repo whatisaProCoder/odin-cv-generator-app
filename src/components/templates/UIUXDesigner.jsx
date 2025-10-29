@@ -209,18 +209,18 @@ function UIUXDesigner({ cvData, ref }) {
                         <a
                           href={`https://${project.repoLink}`}
                           target="_blank"
-                          className="underline text-[#232efd]"
+                          className="text-[#232efd]"
                         >
-                          [GitHub]
+                          [<span className="underline">GitHub</span>]
                         </a>
                       )}
                       {project.liveLink !== "" && (
                         <a
                           href={`https://${project.liveLink}`}
                           target="_blank"
-                          className="underline text-[#232efd]"
+                          className="text-[#232efd]"
                         >
-                          [Link]
+                          [<span className="underline">Link</span>]
                         </a>
                       )}
                     </div>
