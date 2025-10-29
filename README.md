@@ -2,6 +2,8 @@
 
 A modern, interactive web application for creating professional CVs with multiple templates and customization options. Built with React and Vite, this application provides a seamless experience for users to build, customize, and download their CVs in a printable format.
 
+![Showcase](./src/assets/images/showcase.png)
+
 ## Overview
 
 The CV Generator App is a single-page application that allows users to create professional CVs by filling out forms and instantly seeing the results in a live preview. The application supports multiple pre-designed templates tailored for different professions, customizable accent colors, and automatic data persistence using local storage.
