@@ -30,8 +30,8 @@ function UIUXDesigner({ cvData, ref }) {
     projects: [
       {
         title: "Factory Analytics Dashboard",
-        liveLink: "https://www.figma.com/proto/orion-dashboard-v1",
-        repoLink: "https://github.com/orion/robotics-interface",
+        liveLink: "www.figma.com/proto/orion-dashboard-v1",
+        repoLink: "www.github.com/orion/robotics-interface",
         details: [
           "Designed a real-time analytics dashboard translating complex factory data into actionable insights.",
           "Built a scalable Figma design system with data visualization components and WCAG AA accessibility.",
@@ -39,8 +39,8 @@ function UIUXDesigner({ cvData, ref }) {
       },
       {
         title: "XarrowAI - Robotic Control Interface",
-        liveLink: "https://www.reallygreatsite.com/case-study/xarrow-robotics",
-        repoLink: "https://github.com/xarrow-ai/robotics-interface",
+        liveLink: "www.reallygreatsite.com/case-study/xarrow-robotics",
+        repoLink: "www.github.com/xarrow-ai/robotics-interface",
         details: [
           "Redesigned a robotic control panel, simplifying a 12-step programming task into a 4-step wizard.",
           "Worked with engineers to implement the React UI, ensuring feasibility on industrial hardware.",

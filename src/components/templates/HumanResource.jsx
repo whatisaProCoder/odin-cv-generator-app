@@ -41,8 +41,8 @@ function HumanResource({ cvData, ref }) {
     projects: [
       {
         title: "Project 'Launchpad' - New Product Launch",
-        liveLink: "https://www.company.com/case-study/launchpad",
-        repoLink: "https://www.behance.net/portfolio/launchpad-g2m",
+        liveLink: "www.company.com/case-study/launchpad",
+        repoLink: "www.behance.net/portfolio/launchpad-g2m",
         details: [
           "Led go-to-market strategy for a new SaaS product targeting mid-market tech.",
           "Managed $50K launch budget (paid search, social) and exceeded lead goals by 20%.",
@@ -50,8 +50,8 @@ function HumanResource({ cvData, ref }) {
       },
       {
         title: "Content Marketing Engine Overhaul",
-        liveLink: "https://www.company.com/blog",
-        repoLink: "https://www.my-analytics-dashboard-screenshot.com/report-1",
+        liveLink: "www.company.com/blog",
+        repoLink: "www.my-analytics-dashboard-screenshot.com/report-1",
         details: [
           "Overhauled the company blog with a new, SEO-driven content strategy.",
           "Grew organic traffic 120% in 9 months; boosted blog lead conversion 35%.",

@@ -33,8 +33,8 @@ function SoftwareEngineer({ cvData, ref }) {
     projects: [
       {
         title: "CodeConnect - Real-time Collab Editor",
-        liveLink: "https://codeconnect.vercel.app",
-        repoLink: "https://github.com/alexjohnson/codeconnect",
+        liveLink: "www.codeconnect.vercel.app",
+        repoLink: "www.github.com/alexjohnson/codeconnect",
         details: [
           "Built a real-time collaborative code editor using WebSockets (Socket.io) and a React frontend.",
           "Implemented room-based authentication and synchronized text editing across multiple clients.",
@@ -42,8 +42,8 @@ function SoftwareEngineer({ cvData, ref }) {
       },
       {
         title: "GourmetAPI - Recipe Service",
-        liveLink: "https://gourmet-api.heroku.app",
-        repoLink: "https://github.com/alexjohnson/gourmet-api",
+        liveLink: "www.gourmet-api.heroku.app",
+        repoLink: "www.github.com/alexjohnson/gourmet-api",
         details: [
           "Developed a RESTful API with Node.js and Express for managing user-submitted recipes.",
           "Integrated JWT for secure user authentication and used PostgreSQL for data persistence.",
