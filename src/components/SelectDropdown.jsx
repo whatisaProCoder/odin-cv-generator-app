@@ -26,7 +26,7 @@ function SelectDropdown({ className, selected, children }) {
       </div>
       {open && (
         <div
-          className="absolute mt-1 w-full bg-[#1e1e1e] border border-[#282828] rounded-sm p-1 flex flex-col gap-1 z-10"
+          className="absolute mt-1 w-full bg-[#1e1e1e] border border-[#282828] rounded-sm p-1 flex flex-col gap-1 z-10 drop-shadow-xl"
           onClick={handleClick}
         >
           {children}
