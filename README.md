@@ -114,10 +114,9 @@ App
 The central orchestrator of the application that:
 
 - Manages all CV-related state
-- Handles auto-save functionality using `useEffect`
+- Handles auto-save functionality.
 - Loads saved data from localStorage on mount
 - Renders responsive layout (side-by-side on desktop, stacked on tablet)
-- Uses `useMemo` to optimize CV data object creation
 
 ### Form Sections
 
@@ -183,8 +182,8 @@ A custom dropdown component that:
 
 The application implements automatic saving:
 
-- **Load on Mount**: Retrieves saved CV data when the app loads
-- **Auto-Save**: Uses `useEffect` to save changes to localStorage whenever CV data changes
+- **Load on Mount**: Uses `useEffect` to retrieves saved CV data when the app loads
+- **Auto-Save**: Save changes to localStorage whenever CV data changes
 - **Fallback Values**: Provides default values if no saved data exists
 
 ## Utility Functions
