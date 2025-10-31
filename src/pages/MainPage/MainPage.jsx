@@ -117,11 +117,7 @@ function MainPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Autosave CV
-  useEffect(() => {
-    if (!loaded) return;
-    localStorage.setItem("cvData", JSON.stringify(CVObject));
-  }, [CVObject, loaded]);
+  if (loaded) localStorage.setItem("cvData", JSON.stringify(CVObject));
 
   return (
     <>
