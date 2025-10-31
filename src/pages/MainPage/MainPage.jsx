@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Templates } from "../../components/templates";
 import { AccentColors } from "../../constants/accentColors";
 import Footer from "../../components/Footer";
@@ -70,29 +70,6 @@ function MainPage() {
     { point: "", details: "" },
   ]);
 
-  const CVObject = useMemo(
-    () => ({
-      templateID,
-      accentColorID,
-      personalInfo,
-      skills,
-      projects,
-      professionalExperiences,
-      educationExperiences,
-      additionalInformations,
-    }),
-    [
-      templateID,
-      accentColorID,
-      personalInfo,
-      skills,
-      projects,
-      professionalExperiences,
-      educationExperiences,
-      additionalInformations,
-    ]
-  );
-
   // Load saved CV
   useEffect(() => {
     const savedCV = localStorage.getItem("cvData");
@@ -116,6 +93,17 @@ function MainPage() {
     setLoaded(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const CVObject = {
+    templateID,
+    accentColorID,
+    personalInfo,
+    skills,
+    projects,
+    professionalExperiences,
+    educationExperiences,
+    additionalInformations,
+  };
 
   if (loaded) localStorage.setItem("cvData", JSON.stringify(CVObject));
 
