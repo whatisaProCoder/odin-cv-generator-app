@@ -8,7 +8,7 @@ function App() {
 
   setInterval(() => {
     setLoading(false);
-  }, 1900);
+  }, 2150);
 
   return (
     <>
