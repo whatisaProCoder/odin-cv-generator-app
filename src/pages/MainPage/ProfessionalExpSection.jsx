@@ -165,6 +165,7 @@ function ProfessionalExpSection({
                       e.target.checked;
                     setProfessionalExperiences(newProfessionalExperiences);
                   }}
+                  checked={professionalExperiences.workingAtPresent}
                 />
               </div>
               <div className="flex flex-row items-center">

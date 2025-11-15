@@ -148,6 +148,7 @@ function ProfessionalExpSection({
                       e.target.checked;
                     setEducationExperiences(newEducationExperiences);
                   }}
+                  checked={educationExperiences.studyingAtPresent}
                 />
               </div>
               <div className="flex flex-row items-center">
