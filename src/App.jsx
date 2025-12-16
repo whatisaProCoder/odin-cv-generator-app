@@ -6,7 +6,7 @@ import { useState } from "react";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  setInterval(() => {
+  setTimeout(() => {
     setLoading(false);
   }, 2150);
 
